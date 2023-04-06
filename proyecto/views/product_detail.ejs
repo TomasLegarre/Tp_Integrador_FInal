@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('partials/head') %>
+<body>
+	<%- include('partials/header') %>
+
+	<!-- product detail -->
+	<div class="container products-wrapper">
+		<div class="d-flex align-items-center">
+			<h2 class="products-title"><%= telefono.marca %> - <%= telefono.modelo %></h2> 
+			<p class="product-detail-description">
+				<a href="/product-add">Editar</a>
+			</p>
+		</div>
+		<div class="product-detail">
+			<div class="row">
+				<article class="col-12 col-lg-8 product-detail-info">
+					<img src="<%= telefono.foto %>" alt="<%= telefono.marca %> - <%= telefono.modelo %>" class="product-detail-img">
+					<p class="product-detail-description"><%= telefono.descripcion %></p>
+				</article>
+				<div class="col-12 col-lg-4">
+					<section class="comments">
+                        <% for (let i = 0; i < lista_comentarios.length; i++) { %>
+                            <article>
+                                <img src="<%= lista_comentarios[i].usuario.foto %>" alt="Foto de perfil de <%= lista_comentarios[i].usuario.nombre %>">
+                                <div class="data">
+                                    <p class="user">
+                                    <strong> <a href="/profile/<%= lista_comentarios[i].usuario.id %>">Nombre usuario: <%= lista_comentarios[i].usuario.nombre %></a> </strong>
+                                    <%= lista_comentarios[i].comentario %></p>
+                                </div>
+                            </article>
+                        <% } %>
+					</section>
+					<form class="form" action="" method="POST">
+						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+					</form>
+					<hr>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /product detail -->
+
+	<%- include('partials/footer') %>
+
+</body>	
+</html>
