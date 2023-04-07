@@ -10,7 +10,7 @@ const lista_usuarios = [
     },
     {
         id: 2,
-        nombre: "",
+        nombre: "SOFIA",
         email: "",
         password: "",
         foto: "",
@@ -19,7 +19,7 @@ const lista_usuarios = [
     },
     {
         id: 3,
-        nombre: "",
+        nombre: "JOSE",
         email: "",
         password: "",
         foto: "",
@@ -28,7 +28,7 @@ const lista_usuarios = [
     },
     {
         id: 4,
-        nombre: "",
+        nombre: "MARTIN",
         email: "",
         password: "",
         foto: "",
@@ -37,7 +37,7 @@ const lista_usuarios = [
     },
     {
         id: 5,
-        nombre: "",
+        nombre: "LARA",
         email: "",
         password: "",
         foto: "",
