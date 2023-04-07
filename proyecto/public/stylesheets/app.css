@@ -4,7 +4,7 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #EAC926;
+  --yellow: #1259c3fc;
   --dark-blue: #03264C;
   --light-blue: #1259c3;
   --gray: #666666;
@@ -42,7 +42,7 @@ ol {
 a {
   display: inline-block;
   text-decoration: none;
-  color: inherit;
+  color: whitesmoke;
 }
 
 figure {
@@ -171,7 +171,7 @@ hr {
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
-  color: var(--gray);
+  color: #1259c3;
 }
 
 .product-box {
@@ -508,7 +508,8 @@ textarea.form-input {
 
   .left-navbar a:hover,
   .right-navbar a:hover {
-    color: var(--light-blue);
+    color: #03264C;
+    /*color: var(--light-blue);*/
   }
 
   .left-navbar li {
