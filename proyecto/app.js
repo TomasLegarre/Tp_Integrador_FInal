@@ -8,6 +8,7 @@ let indexRouter = require('./routes/index');
 let productslRouter = require('./routes/product')
 let usersRouter = require('./routes/users')
 
+
 var app = express();
 // nuevo cambio
 
@@ -16,7 +17,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 /* en estas lineas se requiren los modulos propios de rutas*/
-
 
 
 app.use(logger('dev'));
