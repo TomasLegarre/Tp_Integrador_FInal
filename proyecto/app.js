@@ -4,12 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-
 let indexRouter = require('./routes/index');
 let productslRouter = require('./routes/product')
+let usersRouter = require('./routes/users')
 
-
-// hopla soy ISA
 
 var app = express();
 // nuevo cambio
@@ -21,7 +19,6 @@ app.set('view engine', 'ejs');
 /* en estas lineas se requiren los modulos propios de rutas*/
 
 
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({
@@ -31,7 +28,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/product', productslRouter)
+app.use('/products', productslRouter)
+app.use('/users', usersRouter)
 
 
 // catch 404 and forward to error handler
