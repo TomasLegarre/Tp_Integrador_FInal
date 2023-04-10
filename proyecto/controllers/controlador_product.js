@@ -2,13 +2,9 @@ const lista_telefonos = require('../db/telefonos');
 const lista_usuarios = require('../db/usuarios');
 const lista_comentarios = require('../db/comentarios');
 
-const controlador = {
-    index: function(req, res) {
-        res.render('index', {lista_telefonos: lista_telefonos});
-    },
-    login: function(req, res) {
-        res.render('login');
-    },
+const controlador_product = {
+
+ 
     product_add: function(req, res) {
         res.render('product_add');
     },
@@ -50,19 +46,10 @@ const controlador = {
         }
 
         res.render('product_detail', {telefono: telefono, lista_comentarios: lista_comentarios_con_usuarios});
-    },
-    profile_edit: function(req, res) {
-        res.render('profile_edit');
-    },
-    profile: function(req, res) {
-        res.render('profile');
-    },
-    register: function(req, res) {
-        res.render('register');
-    },
-    search_results: function(req, res) {
-        res.render('search_results');
     }
+   
 }
 
-module.exports = controlador;
+
+
+module.exports = controlador_product;

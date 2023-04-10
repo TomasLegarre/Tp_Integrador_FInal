@@ -4,13 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-<<<<<<< HEAD
+let indexRouter = require('./routes/index');
 let productslRouter = require('./routes/product')
+let usersRouter = require('./routes/users')
 
-=======
-// hopla soy ISA
->>>>>>> deca67ce2634ac516067107e236d5ca8f13505e3
 var app = express();
 // nuevo cambio
 
@@ -31,7 +28,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/product', productslRouter)
+app.use('/products', productslRouter)
+app.use('/users', usersRouter)
 
 
 // catch 404 and forward to error handler
