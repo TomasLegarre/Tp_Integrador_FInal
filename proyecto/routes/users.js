@@ -9,3 +9,4 @@ router.get('/register', controlador_users.register); // el subfijo no lo repetim
 router.get('/login', controlador_users.login);
 
 module.exports = router;
+
