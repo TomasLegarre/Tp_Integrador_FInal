@@ -4,8 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-// hopla soy ISA
+let indexRouter = require('./routes/index');
+
 var app = express();
 // nuevo cambio
 
