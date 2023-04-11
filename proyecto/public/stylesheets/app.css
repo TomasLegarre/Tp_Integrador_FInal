@@ -42,8 +42,12 @@ ol {
 a {
   display: inline-block;
   text-decoration: none;
-  color: whitesmoke;
+  color: #ccc(245, 245, 245);
 }
+
+a {
+  font-family: math;
+} /*tipo de letra nueva */
 
 figure {
   margin: 0;
@@ -172,6 +176,7 @@ hr {
   font-size: 2.4em;
   font-weight: 400;
   color: #1259c3;
+  font-family: math;
 }
 
 .product-box {
@@ -277,6 +282,7 @@ hr {
   color: var(--gray);
   font-size: 2.4em;
   font-weight: 400;
+  font-family: math;
 }
 
 .footer-data p {
@@ -421,6 +427,7 @@ hr {
 }
 .comments .user{
   font-size: 1.7em;
+  font-family: math
 }
 
 /*====== Formularios ======*/
