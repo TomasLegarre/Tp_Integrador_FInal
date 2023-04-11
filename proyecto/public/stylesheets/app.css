@@ -159,6 +159,7 @@ hr {
 /*====== Banner ======*/
 .banner {
   background-image: url(/images/img-home-banner.jpg);
+ /* background-image: url(/images/products/descarga.jpeg);*/
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -492,7 +493,7 @@ textarea.form-input {
   }
 
   .banner {
-    height: 320px;
+    height: 300px;
   }
 
   .btn-toggle-navbar {
