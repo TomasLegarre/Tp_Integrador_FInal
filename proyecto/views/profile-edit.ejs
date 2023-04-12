@@ -1,34 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
-	<%- include('partials/head') %>
+<!-- Include Head -->
+<%- include('partials/head') %>
 
-	<%- include('partials/head') %>
 
+	
 <body>
+	<!-- Header -->
 	<%- include('partials/header') %>
 	<!-- /Header -->
+
+	<!-- Datos del usuario -->
+	<section class="info-usuario container products-wrapper">
+		<div class="row">
+			<div class="img-container offset-3 col-2">
+				<img src="https://via.placeholder.com/150" alt="foto de perfil" class="foto-perfil">
+			</div>
+			<div class="data-container col-6">
+				<div class="d-flex align-items-center ">
+					<h1 class="main-title">Nombre del usuario 
+						<a href="profile-edit.html">
+							<i class="fas fa-cog"></i>
+						</a>
+					</h1>
+					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+				</div>
+				<div>
+					<ul class="">
+						<li>8 productos</li>
+						<li>200 seguidores</li>
+						<li>300 comentarios</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- /Datos del usuario -->
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Ingresar</h2>
+				<h2 class="products-title"> Editar Perfil </h2>
 			</div>
-			<!-- Show the "ultimos" products -->
-			<form action="/users/profile" target="_blank">
+			
+			<form action="/users/profile_edit" target="_blank">
 
 				<p>Nombre de usuario <input type="text" name="username"></p>
 			  
 				<p>Contraseña <input type="text" name="password"></p>
 
-				<p><button type="submit">Ingresar</button></p>
+				<p>Mail <input type="text" name="password"></p>
+
+				<p>Fecha de nacimiento <input type="text" name="password"></p>
+
+				<p>DNI <input type="text" name="password"></p>
+			  
+				<p><button type="submit"> Actualizar Cambios </button></p>
 			  
 			  </form>
 
 
 
-
-			  
 	<!-- footer -->
 	<footer class="main-footer">
 		<div class="container">
@@ -37,8 +70,7 @@
 					<article class="footer-data">
 						<i class="fas fa-credit-card"></i>
 						<h2>Pagá con tarjeta o en efectivo</h2>
-						<p>Con Mercado Liebre Cash, tenés cuotas sin interés con tarjeta o efectivo en puntos de pago.
-							¡Y
+						<p>Con Mercado Liebre Cash, tenés cuotas sin interés con tarjeta o efectivo en puntos de pago. ¡Y
 							siempre es seguro!</p>
 					</article>
 				</div>
@@ -62,6 +94,5 @@
 		</div>
 	</footer>
 	<!-- /footer -->
-</body>
-
+</body>	
 </html>
