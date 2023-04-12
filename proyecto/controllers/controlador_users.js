@@ -11,7 +11,7 @@ const controlador_users = {
         res.render('profile_edit');
     },
     profile: function(req, res) {
-        res.render('profile');
+        res.render('profile', {lista_telefonos: lista_telefonos});
     },
     register: function(req, res) {
         res.render('register');
