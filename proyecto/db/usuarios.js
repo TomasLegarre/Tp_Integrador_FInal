@@ -4,7 +4,7 @@ const lista_usuarios = [
         nombre: "Juan Perez",
         email: "juanperez12@gmail.com",
         password: "Pepito1203",
-        foto: "",
+        foto: "default-imgage.png",
         fecnac: "1998-10-05",
         dni: "41267865"
     },
