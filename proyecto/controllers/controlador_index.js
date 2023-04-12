@@ -7,7 +7,7 @@ const controlador_index = {
         res.render('index', {lista_telefonos: lista_telefonos});
     },
     search_results: function(req, res) {
-        res.render('search_results');
+        res.render('search-results', {resultado : req.query.search});
     }
 }
 
