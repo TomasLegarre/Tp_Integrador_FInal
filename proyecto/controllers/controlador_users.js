@@ -8,7 +8,7 @@ const controlador_users = {
         res.render('login');
     },
     profile_edit: function(req, res) {
-        res.render('profile_edit');
+        res.render('profile-edit');
     },
     profile: function(req, res) {
         res.render('profile', {lista_telefonos: lista_telefonos});
