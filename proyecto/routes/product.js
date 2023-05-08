@@ -9,3 +9,7 @@ router.get('/detail/:id', controlador_product.product_detail);
 
 
 module.exports = router;
+
+//localhost:3000/products/add
+//localhost:3000/products/detail/:iphone
+// dominio        pre      suf    param

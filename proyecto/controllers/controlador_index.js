@@ -1,6 +1,6 @@
 const lista_telefonos = require('../db/telefonos');
-const lista_usuarios = require('../db/usuarios');
-const lista_comentarios = require('../db/comentarios');
+//const lista_usuarios = require('../db/usuarios');
+//const lista_comentarios = require('../db/comentarios');
 
 const controlador_index = {
     index: function(req, res) {
@@ -12,3 +12,4 @@ const controlador_index = {
 }
 
 module.exports = controlador_index;
+

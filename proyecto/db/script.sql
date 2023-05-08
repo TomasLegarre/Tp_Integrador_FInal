@@ -12,8 +12,8 @@ CREATE TABLE usuarios (
     updateAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     );
 ALTER TABLE productos
-MODIFY descripcion  VARCHAR (500) NOT NULL;
-
+MODIFY descripcion  VARCHAR (500) NOT NULL;          
+            /*entidades */
 CREATE TABLE productos (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 nombre VARCHAR (200) NOT NULL,

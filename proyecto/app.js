@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+//requiero el modulo propio
 let indexRouter = require('./routes/index');
 let productslRouter = require('./routes/product')
 let usersRouter = require('./routes/users')
@@ -27,9 +28,14 @@ app.use(express.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//metodo // solicito el recurso 
+//express utiliza mi modulo con los prefijos 
 app.use('/', indexRouter);
 app.use('/products', productslRouter)
 app.use('/users', usersRouter)
+//       prefijo    
+
+//localhost:3000/products
 
 
 // catch 404 and forward to error handler
