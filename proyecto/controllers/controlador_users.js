@@ -1,6 +1,8 @@
-const lista_telefonos = require('../db/telefonos');
-//const lista_usuarios = require('../db/usuarios');
-//const lista_comentarios = require('../db/comentarios');
+const lista_telefonos = require('../db/models');
+const usuarios = db.Usuario; //Alias del modelo
+
+//const lista_telefonos = require('../db/telefonos'); se estaba usando este!!! 
+
 
 const controlador_users = {
     

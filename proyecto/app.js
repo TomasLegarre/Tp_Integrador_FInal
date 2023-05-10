@@ -19,7 +19,6 @@ app.set('view engine', 'ejs');
 
 /* en estas lineas se requiren los modulos propios de rutas*/
 
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({
