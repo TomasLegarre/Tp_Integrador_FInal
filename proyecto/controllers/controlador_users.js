@@ -1,11 +1,9 @@
-const lista_telefonos = require('../db/models');
+const db = require('../database/models')
 const usuarios = db.Usuario; //Alias del modelo
+//let op = db.Sequalize.Op;
 
-//const lista_telefonos = require('../db/telefonos'); se estaba usando este!!! 
-
-
-const controlador_users = {
-    
+const usuariosController = {
+     
     login: function(req, res) {
         res.render('login');
     },
@@ -13,13 +11,21 @@ const controlador_users = {
         res.render('profile-edit');
     },
     profile: function(req, res) {
-        res.render('profile', {lista_telefonos: lista_telefonos});
+        
+        usuarios.findAll()
+            
+            .then(result => {
+                 res.render('profile', { lista_telefonos: result , lista_usuarios: result});
+             })
+            .catch(error => {
+            console.log(error);
+             res.render('error', { error: 'Error al obtener usuarios' });
+            });
+
     },
     register: function(req, res) {
         res.render('register');
     },
+};
 
-}
-
-
-module.exports = controlador_users;
+module.exports = usuariosController;

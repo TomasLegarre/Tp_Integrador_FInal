@@ -1,15 +1,20 @@
-const lista_telefonos = require('../db/telefonos');
-//const lista_usuarios = require('../db/usuarios');
-//const lista_comentarios = require('../db/comentarios');
+const db = require('../database/models');
+const index = db.Index; //alias del modelo
 
 const controlador_index = {
-    index: function(req, res) {
-        res.render('index', {lista_telefonos: lista_telefonos});
-    },
-    search_results: function(req, res) {
-        res.render('search-results', {resultado : req.query.search});
-    }
-}
+  index: function(req, res) {
+    index.findAll()
+      .then(lista_telefonos => {
+        res.render('index', { lista_telefonos: lista_telefonos });
+      })
+      .catch(error => {
+        console.log(error);
+        res.render('error', { error: 'Error al obtener la lista de teléfonos' });
+      });
+  },
+  search_results: function(req, res) {
+    res.render('search-results', { resultado: req.query.search });
+  }
+};
 
 module.exports = controlador_index;
-

@@ -1,11 +1,9 @@
 /* El modelo es una func q recibe 2 parametros (sequelize, dataTypes)*/
 
 module.exports = function (sequelize, dataTypes) {
-    /*                      2 parametros q son Obj Lit. el 1ero me tre un metodo q me permite insertar un modelo. el 2do me permite utilizar ESE objeto p/ traerme propiedades para yo crear mi MAPEO en las columnas. */
-   
-
-        /*apodo para requerirlo en el controlador  */
-    let alias  = "Comentario" ; 
+    /* 2 parametros q son Obj Lit. el 1ero me tre un metodo q me permite insertar un modelo. el 2do me permite utilizar ESE objeto p/ traerme propiedades para yo crear mi MAPEO en las columnas. */
+     
+     let alias  = "Comentario" ; 
 
         /*mapeo exacto d/ cada una de mis columnas */
     let cols   = { 
