@@ -1,11 +1,23 @@
+
 const db = require('../database/models'); //alias del modelo
 const Producto = db.Producto; // q es esto??? 
 
+const controlador_index = {}
+  index: function(req, res) 
+    Producto.findAll() 
+
+const db = require('../database/models');
+const producto = db.Producto; //alias del modelo
+
 const controlador_index = {
   index: function(req, res) {
-    Producto.findAll() 
+    let rel = {
+      include: [{association: "usuarios"}]
+    };
+    producto.findAll(rel) 
       .then(lista_telefonos => {
-        res.render('index', { lista_telefonos: lista_telefonos });
+        //res.render('index', { lista_telefonos: lista_telefonos });
+        return res.send(lista_telefonos)
       })
       .catch(error => {
         console.log(error);
