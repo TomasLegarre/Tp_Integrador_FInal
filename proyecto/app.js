@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// Prueba Vic
+
 //requiero el modulo propio
 let indexRouter = require('./routes/index');
 let productslRouter = require('./routes/product')
