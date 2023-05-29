@@ -28,7 +28,7 @@ fs
   })
   .forEach(file => {
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db['Index'] = model; //alias
+    db[model.name] = model; //alias
   });
 
 Object.keys(db).forEach(modelName => {

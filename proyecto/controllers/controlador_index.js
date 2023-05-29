@@ -1,11 +1,15 @@
 const db = require('../database/models');
-const index = db.Index; //alias del modelo
+const producto = db.Producto; //alias del modelo
 
 const controlador_index = {
   index: function(req, res) {
-    producto.findAll() //cambiar index. x el de product
+    let rel = {
+      include: [{association: "usuarios"}]
+    };
+    producto.findAll(rel) 
       .then(lista_telefonos => {
-        res.render('index', { lista_telefonos: lista_telefonos });
+        //res.render('index', { lista_telefonos: lista_telefonos });
+        return res.send(lista_telefonos)
       })
       .catch(error => {
         console.log(error);

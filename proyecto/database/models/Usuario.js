@@ -43,22 +43,16 @@ module.exports = function (sequelize, dataTypes) {
             underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
         };
     
-    const Usuarios = sequelize.define(alias,cols,config); /*se guarda un Obj lit en la var "Usuarios" */
-/*                  seq es un parametro q es un Obj lit, q tiene un metodo principal (define) q ayuda a definir mi modelo con el alias,con el mapeo de las columnas y con la config. cuando crea ese modelo, dsp lo retorno para utilizarlo en el controlador de seq  */
-    
-        // Usuarios.associate = function(models) {
-        //     // pertenece a //
-        //     Usuarios.hasMany(models.Producto, {
-        //         as : "producto",
-        //         foreingKey : "usuarios_id" // usar siempre el fk de la tabla donde estoy parado, este caso es USAURIO y el unico id el el PK, por lo tanto utilizo ese
-        //     }),
-        //     Usuarios.hasMany(models.Comentario, {
-        //         as : "comentario", 
-        //         foreingKey : "usuarios_id" // chequiar si esta bien el fk//
-        //     })
-        // }
+    const Usuario = sequelize.define(alias,cols,config); 
 
-    return Usuarios;
+     /* Crear relacion */
+     Usuario.associate = function(models) {
+        Usuario.hasMany(models.Producto, {
+         as: "productos",
+         foreingKey: "usuarios_id"
+        })
+     };
+    return Usuario;
 
     };
 
