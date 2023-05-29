@@ -3,7 +3,7 @@ const index = db.Index; //alias del modelo
 
 const controlador_index = {
   index: function(req, res) {
-    index.findAll()
+    producto.findAll() //cambiar index. x el de product
       .then(lista_telefonos => {
         res.render('index', { lista_telefonos: lista_telefonos });
       })
