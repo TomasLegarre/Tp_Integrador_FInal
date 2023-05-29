@@ -1,7 +1,3 @@
-/*const lista_telefonos = require('../db/telefonos');
-const lista_usuarios = require('../db/usuarios');
-const lista_comentarios = require('../db/comentarios'); */
-
 const db = require ('../database/models');
 const usuarios = db.Usuario; //alias
 const comentarios = db.Comentario; //alias
