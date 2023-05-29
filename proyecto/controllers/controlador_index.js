@@ -1,11 +1,3 @@
-
-const db = require('../database/models'); //alias del modelo
-const Producto = db.Producto; // q es esto??? 
-
-const controlador_index = {}
-  index: function(req, res) 
-    Producto.findAll() 
-
 const db = require('../database/models');
 const producto = db.Producto; //alias del modelo
 
