@@ -44,9 +44,8 @@ module.exports = function (sequelize, dataTypes) {
         };
     
 
-
     const Usuario = sequelize.define(alias,cols,config); ///*se guarda un Obj lit en la var "Usuarios" */
-    /*                                                   seq es un parametro q es un Obj lit, q tiene un metodo principal (define) q ayuda a definir mi modelo con el alias,con el mapeo de las columnas y con la config. cuando crea ese modelo, dsp lo retorno para utilizarlo en el controlador de seq  */
+                                                          /*  seq es un parametro q es un Obj lit, q tiene un metodo principal (define) q ayuda a definir mi modelo con el alias,con el mapeo de las columnas y con la config. cuando crea ese modelo, dsp lo retorno para utilizarlo en el controlador de seq  */
 
      /* Crear relacion */
      Usuario.associate = function(models) {
