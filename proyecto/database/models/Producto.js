@@ -15,7 +15,7 @@ module.exports = function (sequelize, dataTypes) {
             nombre:{
                 type: dataTypes.STRING,
             },
-            descripción:{
+            descripcion:{
                 type: dataTypes.STRING,
             },
             usuarios_id:{

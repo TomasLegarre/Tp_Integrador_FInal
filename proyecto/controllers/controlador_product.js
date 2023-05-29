@@ -5,7 +5,7 @@ const lista_comentarios = require('../db/comentarios'); */
 const db = require ('../database/models');
 const usuarios = db.Usuario; //alias
 const comentarios = db.Comentario; //alias
-const index = db.Index; //alias
+const productos = db.Producto; 
 
 const controlador_product = {
 
