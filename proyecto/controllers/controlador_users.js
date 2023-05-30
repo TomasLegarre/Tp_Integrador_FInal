@@ -1,7 +1,7 @@
 const db = require('../database/models')
-const usuarios = db.Usuario; //Alias del modelo
+const usuarios = db.Usuario; 
 //let op = db.Sequalize.Op;
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs') // biblioteca npm. Funcion = hashear 
 
 const usuariosController = {
      
