@@ -1,3 +1,4 @@
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -35,6 +36,7 @@ app.use('/', indexRouter);
 app.use('/products', productslRouter)
 app.use('/users', usersRouter)
 //       prefijo    
+
 
 //localhost:3000/products
 

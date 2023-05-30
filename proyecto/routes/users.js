@@ -10,6 +10,8 @@ router.get('/login', controlador_users.login);
 
 
 router.post('/register', controlador_users.proceso_registro);
+router.post('/users/login',controlador_users.proceso_login);
+
 // GET users listing: 
 //router.get('/all', controlador_users.findAll); rompe el codigo
 

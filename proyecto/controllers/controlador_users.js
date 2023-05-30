@@ -2,6 +2,7 @@ const db = require('../database/models')
 const usuarios = db.Usuario; 
 //let op = db.Sequalize.Op;
 const bcrypt = require('bcryptjs') // biblioteca npm. Funcion = hashear 
+const session = require('express-session');
 
 const usuariosController = {
      
@@ -85,8 +86,40 @@ const usuariosController = {
         .catch(err => {res.send(err)})
 
 
-    }
+    },
+   
 
+proceso_login: function(req, res) {
+  const username = req.body.username;
+  const password = req.body.password;
+  
+  if (username !== '' && password !== '') {
+    // Buscar el usuario en la base
+    usuarios.findOne({
+      where: { username: username }
+    })
+    .then(user => {
+      if (user) {
+        // Comparar la contraseña ingresada con la almacenada en la base de datos
+        if (bcrypt.compareSync(password, user.password)) {
+          // Inicio de sesión exitoso
+          req.session.username = username; // Establece la sesión del usuario y la recuerda
+          res.redirect('/profile');
+        } else {
+          res.send('Contraseña inválida');
+        }
+      } else {
+        res.send('Nombre de usuario no encontrado');
+      }
+    })
+    .catch(err => {
+      res.send(err);
+    });
+  } else {
+    res.send('Nombre de usuario o contraseña inválidos');
+  }
+}
+     
 };
 
 module.exports = usuariosController;
