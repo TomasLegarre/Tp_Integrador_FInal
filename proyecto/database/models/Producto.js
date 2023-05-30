@@ -18,7 +18,7 @@ module.exports = function (sequelize, dataTypes) {
             descripcion:{
                 type: dataTypes.STRING,
             },
-            usuarios_id:{
+            usuario_id:{
                 type: dataTypes.INTEGER,
             },
     
@@ -38,9 +38,14 @@ module.exports = function (sequelize, dataTypes) {
     Producto.associate = function(models) {
         /*        pertenece a    */
         Producto.belongsTo(models.Usuario , {
-                as: "usuarios",
-                foreingKey : "usuarios_id"
-            })
+            as: "usuario",
+            foreingKey : "usuario_id"
+        })
+        Producto.hasMany(models.Comentario, {
+            as: "comentario",
+            foreingKey: "producto_id"
+        })
+
     };
     
 

@@ -20,7 +20,7 @@ module.exports = function (sequelize, dataTypes) {
             email:{
                 type: dataTypes.STRING,
             },
-            contraseña:{
+            contrasenia:{
                 type: dataTypes.STRING,
             },
             foto_perfil:{
@@ -51,7 +51,11 @@ module.exports = function (sequelize, dataTypes) {
      Usuario.associate = function(models) {
         Usuario.hasMany(models.Producto, {
          as: "productos",
-         foreingKey: "usuarios_id"
+         foreingKey: "usuario_id"
+        })
+        Usuario.hasMany(models.Comentario, {
+            as: "comentario",
+            foreingKey: "usuario_id"
         })
      };
 

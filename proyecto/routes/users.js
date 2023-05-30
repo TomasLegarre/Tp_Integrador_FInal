@@ -8,6 +8,8 @@ router.get('/profile', controlador_users.profile);
 router.get('/register', controlador_users.register); // el subfijo no lo repetimos aca, solo en el app. Aca solo el router
 router.get('/login', controlador_users.login);
 
+
+router.post('/register', controlador_users.proceso_registro);
 // GET users listing: 
 //router.get('/all', controlador_users.findAll); rompe el codigo
 
