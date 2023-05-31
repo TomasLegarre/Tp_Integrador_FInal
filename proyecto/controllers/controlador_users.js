@@ -131,36 +131,6 @@ const usuariosController = {
     }
    
 
-/*proceso_login: function(req, res) {
-  const username = req.body.username;
-  const password = req.body.password;
-  
-  if (username !== '' && password !== '') {
-    // Buscar el usuario en la base
-    usuarios.findOne({
-      where: { username: username }
-    })
-    .then(user => {
-      if (user) {
-        // Comparar la contraseña ingresada con la almacenada en la base de datos
-        if (bcrypt.compareSync(password, user.password)) {
-          // Inicio de sesión exitoso
-          req.session.username = username; // Establece la sesión del usuario y la recuerda
-          res.redirect('/');
-        } else {
-          res.send('Contraseña inválida');
-        }
-      } else {
-        res.send('Nombre de usuario no encontrado');
-      }
-    })
-    .catch(err => {
-      res.send(err);
-    });
-  } else {
-    res.send('Nombre de usuario o contraseña inválidos');
-  }
-} */
      
 };
 
