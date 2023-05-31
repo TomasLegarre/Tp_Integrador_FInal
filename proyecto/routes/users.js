@@ -1,4 +1,5 @@
 const express = require('express');
+const controlador_index = require('../controllers/controlador_index');
 const router = express.Router();
 const controlador_users = require('../controllers/controlador_users');
 
@@ -10,7 +11,10 @@ router.get('/login', controlador_users.login);
 
 
 router.post('/register', controlador_users.proceso_registro);
-router.post('/users/login',controlador_users.proceso_login);
+router.post('/users/login',controlador_users.login);
+router.post('/register', controlador_users.proceso_registro);
+router.post('/login', controlador_users.loginPost);
+
 
 // GET users listing: 
 //router.get('/all', controlador_users.findAll); rompe el codigo

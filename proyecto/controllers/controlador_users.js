@@ -87,9 +87,51 @@ const usuariosController = {
 
 
     },
+    login1: function(req, res) {
+        if (req.session.usuarios != undefined) {
+            return res.redirect('/');
+        } else {
+            return res.render('login');
+        }
+    },
+    loginPost: function(req, res) {
+        let username = req.body.username;
+        let pass = req.body.password;
+
+        let filtrado = {
+            where: [{nombre: username}]
+        };
+        usuarios.findOne(filtrado)
+        .then((result) => {
+
+            if (result != null) {
+                let claveCorrecta = bcrypt.compareSync(pass, result.contrasenia)
+                if (claveCorrecta) {
+                    /* poner un usuario en session */
+                    req.session.usuarios = result.dataValues;
+
+                    /*  tildo recordarme => creamos la cookie */
+                    if (req.body.rememberme != undefined) {
+                        res.cookie('usuario', result.id, {maxAge: 1000 * 60 * 15})
+                    }
+
+
+                    return res.redirect("/"); 
+                } else {
+                    return res.send("Existe el usuario  pero la password es incorrecta");
+                }
+            } else {
+                return res.send("El usuario es invalido")
+            }
+            
+        }).catch((err) => {
+            console.log(err);
+        });
+       
+    }
    
 
-proceso_login: function(req, res) {
+/*proceso_login: function(req, res) {
   const username = req.body.username;
   const password = req.body.password;
   
@@ -104,7 +146,7 @@ proceso_login: function(req, res) {
         if (bcrypt.compareSync(password, user.password)) {
           // Inicio de sesión exitoso
           req.session.username = username; // Establece la sesión del usuario y la recuerda
-          res.redirect('/profile');
+          res.redirect('/');
         } else {
           res.send('Contraseña inválida');
         }
@@ -118,7 +160,7 @@ proceso_login: function(req, res) {
   } else {
     res.send('Nombre de usuario o contraseña inválidos');
   }
-}
+} */
      
 };
 
