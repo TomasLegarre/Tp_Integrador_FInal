@@ -1,71 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
-	<%- include('partials/head') %>
+<%- include('partials/head') %>
 
 	<%- include('partials/head') %>
 
-<body>
-	<%- include('partials/header') %>
-	<!-- /Header -->
+		<body>
+			<%- include('partials/header') %>
+				<!-- /Header -->
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Ingresar</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<form method="POST">
+				<!-- Novedades -->
+				<div class="container products-wrapper">
+					<div class="row">
+						<div class="col-12">
+							<h2 class="products-title">Ingresar</h2>
+						</div>
+						<!-- Show the "ultimos" products -->
+						<form method="POST">
 
-				<p>Nombre de usuario <input type="text" name="username"></p>
-			  
-				<p>Contraseña <input type="password" name="password"></p>
+							<p>Nombre de usuario <input type="text" name="username"></p>
 
-				<p><button type="submit">Ingresar</button></p>
-				
-				<div class="input-container ic1">
-					<input type="checkbox" name="rememberme" id="recordarme"> Recordarme?
-				 </div>
-			  
-			  </form>
+							<p>Contraseña <input type="password" name="password"></p>
 
+							<p><button type="submit">Ingresar</button></p>
 
+							<div class="input-container ic1">
+								<input type="checkbox" name="rememberme" id="recordarme"> Recordarme?
+							</div>
 
+						</form>
 
-			  
-	<!-- footer -->
-	<footer class="main-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-lg-4">
-					<article class="footer-data">
-						<i class="fas fa-credit-card"></i>
-						<h2>Pagá con tarjeta o en efectivo</h2>
-						<p>Con Mercado Liebre Cash, tenés cuotas sin interés con tarjeta o efectivo en puntos de pago.
-							¡Y
-							siempre es seguro!</p>
-					</article>
+						<% if (usuarios) { %>
+							<p>Bienvenido, <%= usuarios.nombre %>!</p>
+							<% } else { %>
+								<p>No tienes una cuenta? <a href="/users/register"> Registrate </a></p>
+								<% } %>
+
+									<% if (usuarios?.nombre) { %>
+										<p><a href="/profile">Mi Perfil</a></p>
+										<p><a href="/logout">Logout</a></p>
+										<% } %>
+					</div>
 				</div>
-				<div class="col-12 col-lg-4">
-					<article class="footer-data">
-						<i class="fas fa-gift"></i>
-						<h2>Envío gratis desde $ 1.999</h2>
-						<p>Solo por estar registrado en Mercado Liebre tenés envíos gratis en miles de productos. Es un
-							beneficio de Mercado Puntos.</p>
-					</article>
-				</div>
-				<div class="col-12 col-lg-4">
-					<article class="footer-data">
-						<i class="fas fa-user-shield"></i>
-						<h2>Seguridad, de principio a fin</h2>
-						<p>¿No te gusta? ¡Devolvelo! En Mercado Liebre, no hay nada que no puedas hacer, porque estás
-							siempre protegido.</p>
-					</article>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- /footer -->
-</body>
+
+
+
+
+
+				<!-- footer -->
+				<footer class="main-footer">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-lg-4">
+								<article class="footer-data">
+									<i class="fas fa-credit-card"></i>
+									<h2>Pagá con tarjeta o en efectivo</h2>
+									<p>Con Mercado Liebre Cash, tenés cuotas sin interés con tarjeta o efectivo en
+										puntos de pago.
+										¡Y
+										siempre es seguro!</p>
+								</article>
+							</div>
+							<div class="col-12 col-lg-4">
+								<article class="footer-data">
+									<i class="fas fa-gift"></i>
+									<h2>Envío gratis desde $ 1.999</h2>
+									<p>Solo por estar registrado en Mercado Liebre tenés envíos gratis en miles de
+										productos. Es un
+										beneficio de Mercado Puntos.</p>
+								</article>
+							</div>
+							<div class="col-12 col-lg-4">
+								<article class="footer-data">
+									<i class="fas fa-user-shield"></i>
+									<h2>Seguridad, de principio a fin</h2>
+									<p>¿No te gusta? ¡Devolvelo! En Mercado Liebre, no hay nada que no puedas hacer,
+										porque estás
+										siempre protegido.</p>
+								</article>
+							</div>
+						</div>
+					</div>
+				</footer>
+				<!-- /footer -->
+		</body>
 
 </html>
