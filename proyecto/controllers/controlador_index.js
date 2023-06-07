@@ -1,4 +1,4 @@
-const db = require('../database/models');
+const db = require('../database/models'); 
 const producto = db.Producto; //alias del modelo
 
 const controlador_index = {

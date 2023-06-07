@@ -42,7 +42,7 @@ const usuariosController = {
         }
 
         if (req.body.password.length >= 3) {
-            password = bcrypt.hashSync(req.body.password, 10)
+            password = bcrypt.hashSync(req.body.password, 10) // el bcrypt es el codigo para poder hashear, arriba esta requerida la bibloteca //
         } else {
             res.send("Contraseña inválida")
         }
@@ -53,7 +53,7 @@ const usuariosController = {
             res.send("El email no puede estar vacío")
         }
 
-        if (7 <= req.body.dni.length <= 8) {
+        if(req.body.dni.length <= 7 || req.body.dni.length <= 8) {
             DNI = req.body.dni
         } else {
             res.send("El DNI no es válido")
@@ -108,7 +108,8 @@ const usuariosController = {
                     let claveCorrecta = bcrypt.compareSync(pass, result.contrasenia)
                     if (claveCorrecta) {
                         /* poner un usuario en session */
-                        req.session.usuarios = result.dataValues;
+                        req.session.usuarios = result.dataValues;// saque la S --> me dijo miguel que sea usuario NO usuarios 
+                        res.locals.usuarios = result.dataValues;
 
                         /*  tildo recordarme => creamos la cookie */
                         if (req.body.rememberme != undefined) {

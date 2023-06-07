@@ -2,7 +2,12 @@
 <html lang="es">
     <%- include('partials/head') %>
 <body>
-	<%- include('partials/header') %>
+	<!-- header -->
+	<% if (locals.usuario) { %>
+        <%- include('partials/headerLogueado') %> 
+    <% } else { %> 
+        <%- include('partials/header') %> 
+	<% } %>
 
 	<!-- product detail -->
 	<div class="container products-wrapper">

@@ -2,8 +2,13 @@
 <html lang="es">
     <%- include('partials/head') %>
 <body>                              <!-- modulariz--> 
-	<%- include('partials/header') %>
 	
+    <!-- si estoy logueado el condicional lo tengo que hacer aca? de donde saco la info si estoy o no logueado? -->
+    <% if (locals.usuarios) { %>
+        <%- include('partials/headerLogueado') %> 
+    <% } else { %> 
+        <%- include('partials/header') %> 
+	<% } %>
 	<%- include('partials/banner') %>
 
 	<!-- Novedades -->
