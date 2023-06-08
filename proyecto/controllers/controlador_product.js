@@ -53,6 +53,7 @@ const controlador_product = {
 
         productos.findAll({
             where: [
+<<<<<<< HEAD
                 {
                     nombre: {[op.like]: '%' + busqueda + '%'},
                 },
@@ -85,6 +86,14 @@ const controlador_product = {
             } else {
                 res.render('search-results', {telefonos: telefonos, resultado: busqueda});
             }
+=======
+                {nombre: {[op.like]: '%' + busqueda + '%'}}
+            ]
+        })
+        .then(function(telefonos){
+            // res.send(telefonos)
+            res.render('search-results', {telefonos: telefonos, resultado: busqueda});
+>>>>>>> c028e04b737f0a842e6b171a2b379709e59f14b2
         })
         .catch(function(error){
             res.send(error)

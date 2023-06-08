@@ -21,8 +21,11 @@ const upload = multer({storage: storage});
 router.get('/add', controlador_product.product_add);
 router.get('/search-results', controlador_product.search_results);
 
+<<<<<<< HEAD
 router.post('/add', upload.single('imagen'), controlador_product.store);
 
+=======
+>>>>>>> c028e04b737f0a842e6b171a2b379709e59f14b2
 router.get('/detail/:id', controlador_product.product_detail);
 
 

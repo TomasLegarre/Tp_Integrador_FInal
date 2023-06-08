@@ -21,10 +21,14 @@ const usuariosController = {
                         { association: 'comentario', include: [{ association: 'usuario' }]}
                     ]
                 },
+<<<<<<< HEAD
             ],
             order: [
                 ['update_at', 'DESC']
             ],
+=======
+            ]
+>>>>>>> c028e04b737f0a842e6b171a2b379709e59f14b2
         })
 
             .then(result => {
@@ -131,9 +135,13 @@ const usuariosController = {
                             foto_perfil: result.foto_perfil,
                         }
 
+<<<<<<< HEAD
                         // /* poner un usuario en session */
                         // req.session.usuarios = result.dataValues;// saque la S --> me dijo miguel que sea usuario NO usuarios 
                         // res.locals.usuarios = result.dataValues;
+=======
+                        
+>>>>>>> c028e04b737f0a842e6b171a2b379709e59f14b2
 
                         /*  tildo recordarme => creamos la cookie */
                         if (req.body.rememberme != undefined) {
