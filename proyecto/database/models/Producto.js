@@ -18,6 +18,9 @@ module.exports = function (sequelize, dataTypes) {
             descripcion:{
                 type: dataTypes.STRING,
             },
+            imagen: {
+                type: dataTypes.STRING,
+            },
             usuario_id:{
                 type: dataTypes.INTEGER,
             },

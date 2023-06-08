@@ -17,6 +17,17 @@
 			<div class="col-12">
 				<h2 class="products-title">Resultados de búsqueda: <%= resultado %></h2>
 			</div>
+			<div>
+				<% for (let i = 0; i < telefonos.length; i++) { %>
+				<div style="width: 20vw;">
+					<article class="product">
+						<a href="/product/<%= telefonos[i].id %>">
+							<img src="<%= telefonos[i].imagen %>" alt="<%= telefonos[i].nombre %>">
+							<h2 class="product-title"><%= telefonos[i].nombre %></h2>
+						</a>
+					</article>
+				<% } %>
+			</div>
 
 		
 

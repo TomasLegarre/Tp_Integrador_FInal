@@ -48,17 +48,17 @@
 				<h2 class="products-title">MIS PRODUCTOS</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-            <% for (let i = 0; i < 4; i++) { %>
+            <% for (let i = 0; i < datos_usuario.productos.length; i++) { %>
                 <div class="col-12 col-sm-6 col-lg-3">
                     <section class="product-box">
-                        <a href="/products/detail/<%= lista_telefonos[i].id %>">
+                        <a href="/products/detail/<%= datos_usuario.productos[i].id %>">
                             <figure class="product-box_image">
-                                <img src="<%= lista_telefonos[i].foto %>" alt="<%= lista_telefonos[i].marca %> - <%= lista_telefonos[i].modelo %>">
+                                <img src="<%= datos_usuario.productos[i].imagen %>" alt="<%= datos_usuario.productos[i].nombre %>">
                             </figure>
                             <article class="product-box_data">
-                                <h2><%= lista_telefonos[i].marca %> - <%= lista_telefonos[i].modelo %></h2>
-                                <p><%= lista_telefonos[i].descripcion %></p>
-                                <p>Comentarios: <%= lista_telefonos[i].comentarios_id.length %></p>
+                                <h2><%= datos_usuario.productos[i].nombre %></h2>
+                                <p><%= datos_usuario.productos[i].descripcion %></p>
+                                <p>Comentarios: <%= datos_usuario.productos[i].comentario.length %></p>
                             </article>
                         </a>
                     </section>
