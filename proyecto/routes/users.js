@@ -17,11 +17,7 @@ router.post('/login', controlador_users.loginPost);
 router.post('/logout', controlador_users.logout);
 
 router.get('/profile/:id', controlador_users.profile);
-// GET users listing: 
-//router.get('/all', controlador_users.findAll); rompe el codigo
 
-// find by PK -- (busco registros a traves de una Pk):
-//router.get('/id/:id', controlador_users.Show)
 
 
 module.exports = router;
