@@ -127,9 +127,7 @@ const usuariosController = {
                             foto_perfil: result.foto_perfil,
                         }
 
-                        // /* poner un usuario en session */
-                        // req.session.usuarios = result.dataValues;// saque la S --> me dijo miguel que sea usuario NO usuarios 
-                        // res.locals.usuarios = result.dataValues;
+                        
 
                         /*  tildo recordarme => creamos la cookie */
                         if (req.body.rememberme != undefined) {
