@@ -23,10 +23,10 @@
                     <section class="product-box">
                         <a href="/products/detail/<%= lista_telefonos[i].id %>">
                             <figure class="product-box_image">
-                                <img src="<%= lista_telefonos[i].foto %>" alt="<%= lista_telefonos[i].marca %> - <%= lista_telefonos[i].modelo %>">
+                                <img src="<%= lista_telefonos[i].imagen %>" alt="<%= lista_telefonos[i].nombre %>">
                             </figure>
                             <article class="product-box_data">
-                                <h2><%= lista_telefonos[i].marca %> - <%= lista_telefonos[i].modelo %></h2>
+                                <h2><%= lista_telefonos[i].nombre %></h2>
                                 <p><%= lista_telefonos[i].descripcion %></p>
             
                                 <p>Comentarios: <%= lista_telefonos[i].comentario.length %></p>
@@ -51,10 +51,10 @@
                     <section class="product-box">
                         <a href="/products/detail/<%= lista_telefonos[i].id %>">
                             <figure class="product-box_image">
-                                <img src="<%= lista_telefonos[i].foto %>" alt="<%= lista_telefonos[i].marca %> - <%= lista_telefonos[i].modelo %>">
+                                <img src="<%= lista_telefonos[i].imagen %>" alt="<%= lista_telefonos[i].nombre %>">
                             </figure>
                             <article class="product-box_data">
-                                <h2><%= lista_telefonos[i].marca %> - <%= lista_telefonos[i].modelo %></h2>
+                                <h2><%= lista_telefonos[i].nombre %></h2>
                                 <p><%= lista_telefonos[i].descripcion %></p>
                                 <p>Comentarios: <%= lista_telefonos[i].comentario.length %></p>
                             </article>

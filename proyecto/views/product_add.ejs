@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body>
+    <%- include('partials/headerLogueado') %> 
+    <div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Agregar productos</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<div>
+                <form method="post" enctype="multipart/form-data">
+                    <label for="imagen">Ingrese una imagen</label>
+                    <input type="file" name="imagen">
+                    <label for="nombre">Ingrese el nombre del producto</label>
+                    <input type="text" name="nombre">
+                    <label for="descripcion">Ingrese la descripcion del producto</label>
+                    <input type="text" name="descripcion">
+                    <button type="submit">Agregar producto</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>
