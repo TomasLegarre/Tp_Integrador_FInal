@@ -2,7 +2,11 @@
 <html lang="en">
 <%- include('partials/head') %>
 <body>
-    <%- include('partials/headerLogueado') %> 
+    <% if (locals.usuario != undefined) { %>
+        <%- include('partials/headerLogueado') %> 
+    <% } else { %> 
+        <%- include('partials/header') %> 
+	<% } %>
     <div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">

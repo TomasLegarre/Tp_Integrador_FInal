@@ -8,10 +8,10 @@ const controlador_product = {
 
 
     product_add: function (req, res) {
-        if (req.session.usuarios == undefined) {
-            res.redirect('/users/login');
-        } else {
+        if (req.session.usuario != undefined) {
             res.render('product_add');
+        } else {
+            res.redirect('/users/login');
         }
     },
     store: function (req, res) {
