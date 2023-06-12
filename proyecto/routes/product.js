@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 const controlador_product = require('../controllers/controlador_product');
 
-<<<<<<< HEAD
+
 router.get('/add', controlador_product.product_add);
 router.get('/search-results', controlador_product.search_results);
 
 router.post('/add', controlador_product.store);
-=======
+
 const multer = require('multer');
 const path = require('path');
 
@@ -30,7 +30,7 @@ router.get('/search-results', controlador_product.search_results);
 
 router.post('/add', upload.single('imagen'), controlador_product.store);
 
->>>>>>> f70d358d3f9e10e713a311ec30afae8e5a09202a
+
 
 router.get('/detail/:id', controlador_product.product_detail);
 

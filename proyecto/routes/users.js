@@ -17,11 +17,7 @@ router.post('/login', controlador_users.loginPost);
 router.post('/logout', controlador_users.logout);
 
 router.get('/profile/:id', controlador_users.profile);
-<<<<<<< HEAD
-// GET users listing: 
-//router.get('/all', controlador_users.findAll); rompe el codigo
-=======
->>>>>>> f70d358d3f9e10e713a311ec30afae8e5a09202a
+
 
 
 
