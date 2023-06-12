@@ -42,8 +42,8 @@ app.use(session({
 app.use(function(req, res, next) {
   /* la logica para pasar de session a la variable locals */
 
-  if (req.session.usuarios != undefined) {
-    res.locals.usuarios = req.session.usuarios;
+  if (req.session.usuario != undefined) {
+    res.locals.usuario = req.session.usuario;
     return next()
   }
   return next();
@@ -56,13 +56,13 @@ app.use(function(req, res, next) {
 app.use(function(req, res, next) {
   
   /* si existe la cooki en el navegador && no existe el usuario en la variable session */
-  if (req.cookies.usuariosId != undefined && req.session.usuarios == undefined) {
-    let idUsuariosEnCookie = req.cookies.usuariosId;
+  if (req.cookies.usuarioId != undefined && req.session.usuario == undefined) {
+    let idUsuariosEnCookie = req.cookies.usuarioId;
     db.Usuarios.findByPk(idUsuariosEnCookie)
-    .then((usuarios) => {
+    .then((usuario) => {
 
-      req.session.usuarios = usuarios.dataValues;
-      res.locals.usuarios = usuarios.dataValues;
+      req.session.usuario = usuario.dataValues;
+      res.locals.usuario = usuario.dataValues;
 
       return next();
       

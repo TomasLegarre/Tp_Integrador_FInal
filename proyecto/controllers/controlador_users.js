@@ -136,7 +136,7 @@ const usuariosController = {
                     if (claveCorrecta) {
 
 
-                        req.session.usuarios = {
+                        req.session.usuario = {
                             id: result.id,
                             nombre: result.nombre,
                             email: result.email,
@@ -148,15 +148,15 @@ const usuariosController = {
                         // res.locals.usuarios = result.dataValues;
 
 
-                        req.session.usuarios = {
-                            id: result.id,
-                            nombre: result.nombre,
-                            email: result.email,
-                            foto_perfil: result.foto_perfil,
-                        }
+                        // req.session.usuarios = {
+                        //     id: result.id,
+                        //     nombre: result.nombre,
+                        //     email: result.email,
+                        //     foto_perfil: result.foto_perfil,
+                        // }
                         /*  tildo recordarme => creamos la cookie */
                         if (req.body.rememberme != undefined) {
-                            res.cookie('usuario', result.id, { maxAge: 1000 * 60 * 15 })
+                            res.cookie('usuarioId', result.id, { maxAge: 1000 * 60 * 15 })
                         }
                         return res.redirect("/");
                     } else {
@@ -173,7 +173,7 @@ const usuariosController = {
     },
     logout: (req, res) => {
         req.session.destroy();// Eliminar la sesión del usuario y redireccionar a la página de inicio de sesión
-        res.clearCookie('usuario');
+        res.clearCookie('usuarioId');
         res.redirect('/');
     }
 

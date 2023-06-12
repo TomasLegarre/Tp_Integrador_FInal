@@ -3,8 +3,7 @@
     <%- include('partials/head') %>
 <body>                              <!-- modulariz--> 
 	
-    <!-- si estoy logueado el condicional lo tengo que hacer aca? de donde saco la info si estoy o no logueado? -->
-    <% if (locals.usuarios) { %>
+    <% if (locals.usuario) { %>
         <%- include('partials/headerLogueado') %> 
     <% } else { %> 
         <%- include('partials/header') %> 
