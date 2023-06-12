@@ -24,13 +24,11 @@
                 <div class="d-flex align-items-center ">
                     <h1 class="main-title"><%= datos_usuario.nombre %> 
                     </h1>
-                    <% if (locals.usuarios) { %>
-                        <% if (locals.usuarios.id != datos_usuario.id) { %>
+                    <% if (locals.usuario) { %>
+                        <% if (locals.usuario.id != datos_usuario.id) { %>
                             <a class="btn mt-3 ml-4" href="">SEGUIR</a>
                         <% } else { %>
-                            <a href="/users/profile-edit">
-                                <i class="fas fa-cog"></i>
-                            </a>
+                            <a class="btn mt-3 ml-4" href="/users/profile-edit"> EDITAR PERFIL <i class="fas fa-cog"></i> </a>
                         <% } %>
                     <% } else { %>
                         <a class="btn mt-3 ml-4" href="/users/login">SEGUIR</a>
