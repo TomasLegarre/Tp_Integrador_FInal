@@ -12,6 +12,10 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
+			<strong>
+                <a href="/users/profile/<%= telefono.usuario.id%>">Producto de: <%= telefono.usuario.nombre%></a>
+            </strong>
+
 			<h2 class="products-title"><%= telefono.nombre %></h2> 
 			<p class="product-detail-description">
 				<a href="/product-add">Editar</a>
