@@ -3,7 +3,7 @@
     <%- include('partials/head') %>
 <body>                              <!-- modulariz--> 
 	
-    <% if (locals.usuario) { %>
+    <% if (locals.usuario != undefined) { %>
         <%- include('partials/headerLogueado') %> 
     <% } else { %> 
         <%- include('partials/header') %> 
