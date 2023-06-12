@@ -15,7 +15,6 @@
 			<strong>
                 <a href="/users/profile/<%= telefono.usuario.id%>">Producto de: <%= telefono.usuario.nombre%></a>
             </strong>
-			
 			<h2 class="products-title"><%= telefono.nombre %></h2> 
 			<p class="product-detail-description">
 				<a href="/product-add">Editar</a>
@@ -34,7 +33,7 @@
                                 <img src="<%= lista_comentarios[i].usuario.foto_perfil %>" alt="Foto de perfil de <%= lista_comentarios[i].usuario.nombre %>">
                                 <div class="data">
                                     <p class="user">
-                                    <strong> <a href="/users/profile/<%= lista_comentarios[i].usuario.id %>">Nombre usuario: <%= lista_comentarios[i].usuario.nombre %></a> </strong>
+                                    <strong> <a href="/users/profile/<%= lista_comentarios[i].usuario.id %>"><%= lista_comentarios[i].usuario.nombre %></a> </strong>
                                     <%= lista_comentarios[i].comentario %></p>
                                 </div>
                             </article>
