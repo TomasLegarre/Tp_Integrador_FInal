@@ -15,16 +15,27 @@ const usuariosController = {
 
         usuarios.findByPk(id, {
             include: [
+
                 { 
                     association: 'productos', 
                     include: [
                         { association: 'comentario', include: [{ association: 'usuario' }]}
                     ]
                 },
+
+                {
+                    association: 'productos',
+                    include: [
+                        { association: 'comentario', include: [{ association: 'usuario' }] }
+                    ]
+                },
+
+
             ],
             order: [
                 ['update_at', 'DESC']
             ],
+
         })
 
             .then(result => {
@@ -69,7 +80,7 @@ const usuariosController = {
             res.send("El email no puede estar vacío")
         }
 
-        if(req.body.dni.length <= 7 || req.body.dni.length <= 8) {
+        if (req.body.dni.length <= 7 || req.body.dni.length <= 8) {
             DNI = req.body.dni
         } else {
             res.send("El DNI no es válido")
@@ -124,6 +135,7 @@ const usuariosController = {
                     let claveCorrecta = bcrypt.compareSync(pass, result.contrasenia)
                     if (claveCorrecta) {
 
+
                         req.session.usuarios = {
                             id: result.id,
                             nombre: result.nombre,
@@ -135,12 +147,17 @@ const usuariosController = {
                         // req.session.usuarios = result.dataValues;// saque la S --> me dijo miguel que sea usuario NO usuarios 
                         // res.locals.usuarios = result.dataValues;
 
+
+                        req.session.usuarios = {
+                            id: result.id,
+                            nombre: result.nombre,
+                            email: result.email,
+                            foto_perfil: result.foto_perfil,
+                        }
                         /*  tildo recordarme => creamos la cookie */
                         if (req.body.rememberme != undefined) {
                             res.cookie('usuario', result.id, { maxAge: 1000 * 60 * 15 })
                         }
-
-
                         return res.redirect("/");
                     } else {
                         return res.send("Existe el usuario  pero la password es incorrecta");
@@ -157,7 +174,7 @@ const usuariosController = {
     logout: (req, res) => {
         req.session.destroy();// Eliminar la sesión del usuario y redireccionar a la página de inicio de sesión
         res.clearCookie('usuario');
-        res.redirect('/'); 
+        res.redirect('/');
     }
 
 };

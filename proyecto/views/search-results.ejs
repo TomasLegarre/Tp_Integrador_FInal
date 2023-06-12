@@ -18,6 +18,10 @@
 				<h2 class="products-title">Resultados de búsqueda: <%= resultado %></h2>
 			</div>
 			<div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f70d358d3f9e10e713a311ec30afae8e5a09202a
 				<% if (telefonos.length == 0) { %>
 					<h2>No se encontraron resultados</h2>
 				<% } else { %>
@@ -34,6 +38,19 @@
 							</a>
 						</article>
 					<% } %>
+<<<<<<< HEAD
+=======
+=======
+				<% for (let i = 0; i < telefonos.length; i++) { %>
+				<div style="width: 20vw;">
+					<article class="product">
+						<a href="/product/<%= telefonos[i].id %>">
+							<img src="<%= telefonos[i].imagen %>" alt="<%= telefonos[i].nombre %>">
+							<h2 class="product-title"><%= telefonos[i].nombre %></h2>
+						</a>
+					</article>
+>>>>>>> c028e04b737f0a842e6b171a2b379709e59f14b2
+>>>>>>> f70d358d3f9e10e713a311ec30afae8e5a09202a
 				<% } %>
 			</div>
 
