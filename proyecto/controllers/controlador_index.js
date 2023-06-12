@@ -1,22 +1,22 @@
-const db = require('../database/models'); 
+const db = require('../database/models');
 const producto = db.Producto; //alias del modelo
 
 const controlador_index = {
-  index: function(req, res) {
+  index: function (req, res) {
     let rel = {
-      include: [{association: "usuario"}, {association: "comentario"}]
+      include: [{ association: "usuario" }, { association: "comentario" }]
     };
-    producto.findAll(rel) 
+    producto.findAll(rel)
       .then(lista_telefonos => {
         res.render('index', { lista_telefonos: lista_telefonos });
         // return res.send(lista_telefonos)
       })
       .catch(error => {
         console.log(error);
-       // res.render('error', { error: 'Error al obtener la lista de teléfonos' });
+        // res.render('error', { error: 'Error al obtener la lista de teléfonos' });
       });
   },
-  search_results: function(req, res) {
+  search_results: function (req, res) {
     res.render('search-results', { resultado: req.query.search });
   }
 };

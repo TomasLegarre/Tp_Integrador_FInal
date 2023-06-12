@@ -4,7 +4,7 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #1259c3fc;
+  --yellow: #EAC926;
   --dark-blue: #03264C;
   --light-blue: #1259c3;
   --gray: #666666;
@@ -12,6 +12,7 @@
   --green: #39b54a;
   --base-font-family: 'Roboto', sans-serif
 }
+
 
 /*====== Basics ======*/
 * {
@@ -41,12 +42,8 @@ ol {
 a {
   display: inline-block;
   text-decoration: none;
-  color: #ccc(245, 245, 245);
+  color: inherit;
 }
-
-a {
-  font-family: math;
-} /*tipo de letra nueva */
 
 figure {
   margin: 0;
@@ -158,7 +155,6 @@ hr {
 /*====== Banner ======*/
 .banner {
   background-image: url(/images/img-home-banner.jpg);
- /* background-image: url(/images/products/descarga.jpeg);*/
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -175,8 +171,7 @@ hr {
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
-  color: #1259c3;
-  font-family: math;
+  color: var(--gray);
 }
 
 .product-box {
@@ -282,7 +277,6 @@ hr {
   color: var(--gray);
   font-size: 2.4em;
   font-weight: 400;
-  font-family: math;
 }
 
 .footer-data p {
@@ -427,7 +421,6 @@ hr {
 }
 .comments .user{
   font-size: 1.7em;
-  font-family: math
 }
 
 /*====== Formularios ======*/
@@ -492,7 +485,7 @@ textarea.form-input {
   }
 
   .banner {
-    height: 300px;
+    height: 320px;
   }
 
   .btn-toggle-navbar {
@@ -515,8 +508,7 @@ textarea.form-input {
 
   .left-navbar a:hover,
   .right-navbar a:hover {
-    color: #03264C;
-    /*color: var(--light-blue);*/
+    color: var(--light-blue);
   }
 
   .left-navbar li {
@@ -536,4 +528,3 @@ textarea.form-input {
     margin: auto;
   }
 }
-

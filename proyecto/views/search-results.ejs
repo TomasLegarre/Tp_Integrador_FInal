@@ -17,6 +17,25 @@
 			<div class="col-12">
 				<h2 class="products-title">Resultados de búsqueda: <%= resultado %></h2>
 			</div>
+			<div>
+				<% if (telefonos.length == 0) { %>
+					<h2>No se encontraron resultados</h2>
+				<% } else { %>
+					<% for (let i = 0; i < telefonos.length; i++) { %>
+					<div style="width: 20vw;">
+						<article class="product">
+							<a href="/products/detail/<%= telefonos[i].id %>">
+								<img src="<%= telefonos[i].imagen %>" alt="<%= telefonos[i].nombre %>">
+								<h2 class="product-title"><%= telefonos[i].nombre %></h2> - <h2 class="product-title">
+									<a href="/users/profile/<%= telefonos[i].usuario.id %>">
+										<%= telefonos[i].usuario.nombre %>
+									</a>
+								</h2>
+							</a>
+						</article>
+					<% } %>
+				<% } %>
+			</div>
 
 		
 

@@ -5,12 +5,8 @@
 	<%- include('partials/head') %>
 
 		<body>
-				<!-- /Header -->
-				<% if (locals.usuario) { %>
-					<%- include('partials/headerLogueado') %> 
-				<% } else { %> 
-					<%- include('partials/header') %> 
-				<% } %>
+			<!-- /Header -->
+			<%- include('partials/header') %>
 
 				<!-- Novedades -->
 				<div class="container products-wrapper">
@@ -32,17 +28,7 @@
 							</div>
 
 						</form>
-
-						<% if (usuarios) { %>
-							<p>Bienvenido, <%= usuarios.nombre %>!</p>
-							<% } else { %>
-								<p>No tienes una cuenta? <a href="/users/register"> Registrate </a></p>
-								<% } %>
-
-									<% if (usuarios?.nombre) { %>
-										<p><a href="/profile">Mi Perfil</a></p>
-										<p><a href="/logout">Logout</a></p>
-										<% } %>
+						<p>No tienes una cuenta? <a href="/users/register"> Registrate </a></p>
 					</div>
 				</div>
 

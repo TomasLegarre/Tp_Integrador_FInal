@@ -6,18 +6,30 @@ const session = require('express-session');
 
 const usuariosController = {
 
-    login: function (req, res) {
-        res.render('login');
-    },
     profile_edit: function (req, res) {
         res.render('profile-edit');
     },
     profile: function (req, res) {
 
-        usuarios.findAll()
+        let id = req.params.id
+
+        usuarios.findByPk(id, {
+            include: [
+                { 
+                    association: 'productos', 
+                    include: [
+                        { association: 'comentario', include: [{ association: 'usuario' }]}
+                    ]
+                },
+            ],
+            order: [
+                ['update_at', 'DESC']
+            ],
+        })
 
             .then(result => {
-                res.render('profile', { lista_telefonos: result, lista_usuarios: result });
+                // res.send(result)
+                res.render('profile', { datos_usuario: result });
             })
             .catch(error => {
                 console.log(error);
@@ -26,7 +38,11 @@ const usuariosController = {
 
     },
     register: function (req, res) {
-        res.render('register');
+        if (req.session.usuarios != undefined) {
+            res.redirect('/')
+        } else {
+            res.render('register');
+        }
     },
     proceso_registro: function (req, res) {
         let username
@@ -87,11 +103,11 @@ const usuariosController = {
 
 
     },
-    login1: function (req, res) {
+    login: function (req, res) {
         if (req.session.usuarios != undefined) {
             return res.redirect('/');
         } else {
-            return res.render('login', { usuarios: req.session.usuarios }); //la var usuarios: almacena el usuario en sesión.
+            return res.render('login'); //la var usuarios: almacena el usuario en sesión.
         }
     },
     loginPost: function (req, res) {
@@ -107,9 +123,17 @@ const usuariosController = {
                 if (result != null) {
                     let claveCorrecta = bcrypt.compareSync(pass, result.contrasenia)
                     if (claveCorrecta) {
-                        /* poner un usuario en session */
-                        req.session.usuarios = result.dataValues;// saque la S --> me dijo miguel que sea usuario NO usuarios 
-                        res.locals.usuarios = result.dataValues;
+
+                        req.session.usuarios = {
+                            id: result.id,
+                            nombre: result.nombre,
+                            email: result.email,
+                            foto_perfil: result.foto_perfil,
+                        }
+
+                        // /* poner un usuario en session */
+                        // req.session.usuarios = result.dataValues;// saque la S --> me dijo miguel que sea usuario NO usuarios 
+                        // res.locals.usuarios = result.dataValues;
 
                         /*  tildo recordarme => creamos la cookie */
                         if (req.body.rememberme != undefined) {
