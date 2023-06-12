@@ -1,60 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include('partials/head') %>
-<body>
-	<!-- header -->
-	<% if (locals.usuario) { %>
-        <%- include('partials/headerLogueado') %> 
-    <% } else { %> 
-        <%- include('partials/header') %> 
-	<% } %>
+<%- include('partials/head') %>
 
-	<!-- product detail -->
-	<div class="container products-wrapper">
-		<div class="d-flex align-items-center">
-			<strong>
-                <a href="/users/profile/<%= telefono.usuario.id%>">Producto de: <%= telefono.usuario.nombre%></a>
-            </strong>
-			<h2 class="products-title"><%= telefono.nombre %></h2> 
-			<p class="product-detail-description">
-				<a href="/product-add">Editar</a>
-			</p>
-		</div>
-		<div class="product-detail">
-			<div class="row">
-				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%= telefono.imagen %>" alt="<%= telefono.nombre %>" class="product-detail-img">
-					<p class="product-detail-description"><%= telefono.descripcion %></p>
-				</article>
-				<div class="col-12 col-lg-4">
-					<section class="comments">
-                        <% for (let i = 0; i < lista_comentarios.length; i++) { %>
-                            <article>
-                                <img src="<%= lista_comentarios[i].usuario.foto_perfil %>" alt="Foto de perfil de <%= lista_comentarios[i].usuario.nombre %>">
-                                <div class="data">
-                                    <p class="user">
-                                    <strong> <a href="/users/profile/<%= lista_comentarios[i].usuario.id %>"><%= lista_comentarios[i].usuario.nombre %></a> </strong>
-                                    <%= lista_comentarios[i].comentario %></p>
-                                </div>
-                            </article>
-                        <% } %>
-					</section>
+	<body>
+		<!-- header -->
+		<% if (locals.usuario) { %>
+			<%- include('partials/headerLogueado') %>
+				<% } else { %>
+					<%- include('partials/header') %>
+						<% } %>
 
-					<form class="form" action="" method="GET">
+							<!-- product detail -->
+							<div class="container products-wrapper">
+								<div class="d-flex align-items-center">
+									<strong>
+										<a href="/users/profile/<%= telefono.usuario.id%>">
+											<h2 class="products-title"></h2>
+											<%= telefono.usuario.nombre%>
+										</a>
+									</strong>
 
-					<form class="form" action="" method="GET"> 
+									<h2 class="products-title">
+										<%= telefono.nombre %>
+									</h2>
+									<p class="product-detail-description">
+										<a href="/product-add">Editar</a>
+									</p>
+									<% if (locals.usuario && telefono.usuario.id===locals.usuario.id) { %>
+										<form class="form" action="/products/delete/<%= telefono.id %>" method="POST">
+											<!-- Agregar formulario para eliminar el producto -->
+											<button type="submit" class="delete-button">Eliminar</button>
+											
+										</form>
+										<% } %>
+								</div>
 
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
-					<hr>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /product detail -->
+								<div class="product-detail">
+									<div class="row">
+										<article class="col-12 col-lg-8 product-detail-info">
+											<img src="<%= telefono.imagen %>" alt="<%= telefono.nombre %>"
+												class="product-detail-img">
+											<p class="product-detail-description">
+												<%= telefono.descripcion %>
+											</p>
+										</article>
+										<div class="col-12 col-lg-4">
+											<section class="comments">
+												<% for (let i=0; i < lista_comentarios.length; i++) { %>
+													<article>
+														<img src="<%= lista_comentarios[i].usuario.foto_perfil %>"
+															alt="Foto de perfil de <%= lista_comentarios[i].usuario.nombre %>">
+														<div class="data">
+															<p class="user">
+																<strong> <a
+																		href="/users/profile/<%= lista_comentarios[i].usuario.id %>">Nombre
+																		usuario: <%= lista_comentarios[i].usuario.nombre
+																			%></a> </strong>
+																<%= lista_comentarios[i].comentario %>
+															</p>
+														</div>
+													</article>
+													<% } %>
+											</section>
 
-	<%- include('partials/footer') %>
+											<form class="form" action="" method="GET">
 
-</body>	
+												<form class="form" action="" method="GET">
+
+													<input class="form-input" type="text" value=""
+														placeholder="Agregar comentario">
+													<button type="submit" class="buy-now-button">AGREGAR
+														COMENTARIO</button>
+												</form>
+												<hr>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /product detail -->
+
+							<%- include('partials/footer') %>
+
+	</body>
+
 </html>

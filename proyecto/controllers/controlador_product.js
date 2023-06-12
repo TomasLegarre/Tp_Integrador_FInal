@@ -89,7 +89,42 @@ const controlador_product = {
         .catch(function (error) {
             res.send(error);
         });
-    }
+    },
+    product_delete: function (req, res) {
+        let id = req.params.id;
+        let usuarioId = req.session.usuario.id;
+    
+        // Verificar si el producto pertenece al usuario logueado
+        productos.findOne({
+          where: {
+            id: id,
+            id_usuario: usuarioId
+          }
+        })
+        .then(function (producto) {
+          if (producto) {
+            // El producto pertenece al usuario logueado, se puede eliminar
+            productos.destroy({
+              where: {
+                id: id
+              }
+            })
+            .then(function () {
+              res.redirect('/'); 
+            })
+            .catch(function (error) {
+              res.send(error);
+            });
+          } else {
+            // El producto no pertenece al usuario logueado, mostrar mensaje de error
+            res.send('El producto no pertenece al usuario logueado.');
+          }
+        })
+        .catch(function (error) {
+          res.send(error);
+        });
+      }
+    
     
 }
 module.exports = controlador_product;
