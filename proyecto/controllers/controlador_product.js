@@ -117,7 +117,7 @@ const controlador_product = {
             });
           } else {
             // El producto no pertenece al usuario logueado, mostrar mensaje de error
-            res.send('El producto no pertenece al usuario logueado.');
+            res.send('El producto no pertenece al usuario logueado');
           }
         })
         .catch(function (error) {
