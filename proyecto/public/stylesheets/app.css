@@ -108,6 +108,22 @@ hr {
   color: var(--gray);
   cursor: pointer;
 }
+.product-details {
+	display: flex;
+	align-items: center;
+}
+
+.edit-link {
+	margin-right: 10px;
+}
+
+.username {
+	margin-right: 10px;
+}
+
+.product-name {
+	font-weight: bold;
+}
 
 
 /*====== Main Navbar ======*/
