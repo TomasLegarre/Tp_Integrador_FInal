@@ -23,16 +23,15 @@
 									<h2 class="products-title">
 										<%= telefono.nombre %>
 									</h2>
-									<p class="product-detail-description">
-										<a href="/product-add">Editar</a>
-									</p>
-									<% if (locals.usuario && telefono.usuario.id===locals.usuario.id) { %>
+									
+									<% if (locals.usuario && telefono.usuario.id = locals.usuario.id) { %>
 										<form class="form" action="/products/delete/<%= telefono.id %>" method="POST">
 											<!-- Agregar formulario para eliminar el producto -->
 											<button type="submit" class="delete-button">Eliminar</button>
-											
 										</form>
+										<a href="/products/product_edit<%= telefono.id %>">Editar producto</a>
 										<% } %>
+		
 								</div>
 
 								<div class="product-detail">
@@ -53,8 +52,7 @@
 														<div class="data">
 															<p class="user">
 																<strong> <a
-																		href="/users/profile/<%= lista_comentarios[i].usuario.id %>">Nombre
-																		usuario: <%= lista_comentarios[i].usuario.nombre
+																		href="/users/profile/<%= lista_comentarios[i].usuario.id %>">3w	º<%= lista_comentarios[i].usuario.nombre
 																			%></a> </strong>
 																<%= lista_comentarios[i].comentario %>
 															</p>

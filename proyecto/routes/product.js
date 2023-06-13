@@ -10,7 +10,6 @@ router.post('/add', controlador_product.store);
 router.get('/detail/:id', controlador_product.product_detail);
 router.post('/delete/:id', controlador_product.product_delete);
 
-
 module.exports = router;
 
 //localhost:3000/products/add
