@@ -1,3 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-<%- include('partials/head') %>
+	<%- include('partials/head') %>
+
+<body>
+	<!-- Header -->
+	<% if (locals.usuario) { %>
+        <%- include('partials/headerLogueado') %> 
+    <% } else { %> 
+        <%- include('partials/header') %> 
+	<% } %>
+
+
+    
+    <%- include('partials/_footer') %> 
+</body>
+</html>
