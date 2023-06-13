@@ -20,67 +20,36 @@
 			<div>
 
 				<% if (telefonos.length == 0) { %>
-    <h2>No se encontraron resultados</h2>
-<% } else { %>
-    <% for (let i = 0; i < telefonos.length; i++) { %>
-        <div style="width: 20vw;">
-            <article class="product">
-                <a href="/products/detail/<%= telefonos[i].id %>">
-                    <img src="<%= telefonos[i].imagen %>" alt="<%= telefonos[i].nombre %>">
-                    <h2 class="product-title"><%= telefonos[i].nombre %> - <a href="/users/profile/<%= telefonos[i].usuario.id %>"><%= telefonos[i].usuario.nombre %></a></h2>
-                </a>
-            </article>
-        </div>
-    <% } %>
+					<h2>No se encontraron resultados</h2>
+				<% } else { %>
+					<% for (let i = 0; i < telefonos.length; i++) { %>
+						<div style="width: 20vw;">
+							<article class="product">
+								<a href="/products/detail/<%= telefonos[i].id %>">
+									<img src="<%= telefonos[i].imagen %>" alt="<%= telefonos[i].nombre %>">
+									<h2 class="product-title"><%= telefonos[i].nombre %> - <a href="/users/profile/<%= telefonos[i].usuario.id %>"><%= telefonos[i].usuario.nombre %></a></h2>
+								</a>
+							</article>
+						</div>
+					<% } %>
 
-    <% for (let i = 0; i < telefonos.length; i++) { %>
-        <div style="width: 20vw;">
-            <article class="product">
-                <a href="/product/<%= telefonos[i].id %>">
-                    <img src="<%= telefonos[i].imagen %>" alt="<%= telefonos[i].nombre %>">
-                    <h2 class="product-title"><%= telefonos[i].nombre %></h2>
-                </a>
-            </article>
-        </div>
-    <% } %>
-<% } %>
-
-		
-
-
-	<!-- footer -->
-	<footer class="main-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-lg-4">
-					<article class="footer-data">
-						<i class="fas fa-credit-card"></i>
-						<h2>Pagá con tarjeta o en efectivo</h2>
-						<p>Con Mercado Liebre Cash, tenés cuotas sin interés con tarjeta o efectivo en puntos de pago.
-							¡Y
-							siempre es seguro!</p>
-					</article>
-				</div>
-				<div class="col-12 col-lg-4">
-					<article class="footer-data">
-						<i class="fas fa-gift"></i>
-						<h2>Envío gratis desde $ 1.999</h2>
-						<p>Solo por estar registrado en Mercado Liebre tenés envíos gratis en miles de productos. Es un
-							beneficio de Mercado Puntos.</p>
-					</article>
-				</div>
-				<div class="col-12 col-lg-4">
-					<article class="footer-data">
-						<i class="fas fa-user-shield"></i>
-						<h2>Seguridad, de principio a fin</h2>
-						<p>¿No te gusta? ¡Devolvelo! En Mercado Liebre, no hay nada que no puedas hacer, porque estás
-							siempre protegido.</p>
-					</article>
-				</div>
+					<% for (let i = 0; i < telefonos.length; i++) { %>
+						<div style="width: 20vw;">
+							<article class="product">
+								<a href="/product/<%= telefonos[i].id %>">
+									<img src="<%= telefonos[i].imagen %>" alt="<%= telefonos[i].nombre %>">
+									<h2 class="product-title"><%= telefonos[i].nombre %></h2>
+								</a>
+							</article>
+						</div>
+					<% } %>
+				<% } %>
 			</div>
 		</div>
-	</footer>
+	</div>
+
+	<!-- footer -->
+	<%- include('partials/footer') %>
 	<!-- /footer -->
 </body>
-
 </html>
