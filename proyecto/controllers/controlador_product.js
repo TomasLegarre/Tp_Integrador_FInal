@@ -8,20 +8,23 @@ const controlador_product = {
 
 
     product_add: function (req, res) {
-        if (req.session.usuario != undefined) {
-            res.render('product_add');
+        if (req.session.usuario) {
+            return res.render('product_add');
         } else {
-            res.redirect('/users/login');
+            return res.redirect('/users/login');
         }
     },
     store: function (req, res) {
-        let form = req.body;
+        let nombre = req.body.nombre;
+        let descripcion = req.body.descripcion;
+        let imagen = '/images/products/' + req.body.imagen;
+        let id_usuario = req.session.usuario.id;
 
         productos.create({
-            nombre: form.nombre,
-            descripcion: form.descripcion,
-            imagen: form.imagen,
-            id_usuario: req.session.usuarios.id
+            nombre: nombre,
+            descripcion: descripcion,
+            imagen: imagen,
+            id_usuario: id_usuario
         })
             .then(function (respuesta) {
                 res.redirect('/products/detail/' + respuesta.id);
@@ -132,16 +135,22 @@ const controlador_product = {
         }
     },
     EditProduct: function (req, res) {
-        let form = req.body;
+        let idProducto = req.params.id;
+        let nombre = req.body.nombre;
+        let descripcion = req.body.descripcion;
+        let imagen = '/images/products/' + req.body.imagen;
 
-        productos.create({
-            nombre: form.nombre,
-            descripcion: form.descripcion,
-            imagen: form.imagen,
-            id_usuario: req.session.usuarios.id
+        productos.update({
+            nombre: nombre,
+            descripcion: descripcion,
+            imagen: imagen,
+        },{
+            where: {
+                id: idProducto
+            },
         })
-            .then(function (respuesta) {
-                res.redirect('/products/detail/' + respuesta.id);
+            .then(function () {
+                res.redirect('/products/detail/' + idProducto);
             })
             .catch(function (error) {
                 res.send(error);
