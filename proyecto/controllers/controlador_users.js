@@ -115,10 +115,11 @@ const usuariosController = {
 
     },
     login: function (req, res) {
-        if (req.session.usuarios != undefined) {
-            return res.redirect('/');
+        if (req.session.usuarios == undefined) {
+            return res.render('login'); 
         } else {
-            return res.render('login'); //la var usuarios: almacena el usuario en sesión.
+            return res.redirect('/');
+            //la var usuarios: almacena el usuario en sesión. // ESTO NO FUNCIONA, si escribo /login, me da la opcion aunque este lgoueado. 
         }
     },
     loginPost: function (req, res) {
@@ -134,7 +135,6 @@ const usuariosController = {
                 if (result != null) {
                     let claveCorrecta = bcrypt.compareSync(pass, result.contrasenia)
                     if (claveCorrecta) {
-
 
                         req.session.usuario = {
                             id: result.id,
@@ -155,6 +155,7 @@ const usuariosController = {
                         //     foto_perfil: result.foto_perfil,
                         // }
                         /*  tildo recordarme => creamos la cookie */
+                        
                         if (req.body.rememberme != undefined) {
                             res.cookie('usuarioId', result.id, { maxAge: 1000 * 60 * 15 })
                         }
