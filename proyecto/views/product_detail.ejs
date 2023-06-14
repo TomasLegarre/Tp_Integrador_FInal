@@ -14,14 +14,13 @@
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<strong><a href="/users/profile/<%= telefono.usuario.id%>"><h2><%= telefono.usuario.nombre%></h2></a></strong>
-			<strong class="product-title" style="margin-left: 5px;"><a href="/product-add"><h2>Editar</h2></a></strong>
+			<strong class="product-title" style="margin-left: 5px;"><a href="/products/edit"><h2>Editar producto</h2></a></strong>
 			<strong class="product-title" style="margin-left: 5px;"><h2><%= telefono.nombre %></h2></strong>
 
 			<% if (locals.usuario && telefono.usuario.id===locals.usuario.id) { %>
 				<form class="form" action="/products/delete/<%= telefono.id %>" method="POST">
 					<!-- Agregar formulario para eliminar el producto -->
-					<button type="submit" class="delete-button">Eliminar</button>
-				</form>
+					<button type="submit" class="delete-button">Eliminar producto</button>
 			<% } %>
 		</div>
 

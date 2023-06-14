@@ -123,6 +123,14 @@ const controlador_product = {
         .catch(function (error) {
           res.send(error);
         });
-      }, 
+      },
+    product_edit: function (req, res) {
+        if (req.session.usuario != undefined) {
+            res.render('product_add');
+        } else {
+            res.redirect('/users/login');
+        }
+    },
+
 }
 module.exports = controlador_product;
