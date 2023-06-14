@@ -16,12 +16,11 @@ const controlador_product = {
     },
     store: function (req, res) {
         let form = req.body;
-        let imagen = req.file;
 
         productos.create({
             nombre: form.nombre,
             descripcion: form.descripcion,
-            imagen: imagen.filename,
+            imagen: form.imagen,
             id_usuario: req.session.usuarios.id
         })
             .then(function (respuesta) {
@@ -126,11 +125,27 @@ const controlador_product = {
       },
     product_edit: function (req, res) {
         if (req.session.usuario != undefined) {
-            res.render('product_add');
+            res.render('product_edit');
         } else {
             res.redirect('/users/login');
         }
     },
+    EditProduct: function (req, res) {
+        let form = req.body;
+
+        productos.create({
+            nombre: form.nombre,
+            descripcion: form.descripcion,
+            imagen: form.imagen,
+            id_usuario: req.session.usuarios.id
+        })
+            .then(function (respuesta) {
+                res.redirect('/products/detail/' + respuesta.id);
+            })
+            .catch(function (error) {
+                res.send(error);
+            })
+    }
 
 }
 module.exports = controlador_product;
