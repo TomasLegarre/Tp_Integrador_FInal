@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 	<%- include('partials/head') %>
 
@@ -13,5 +14,33 @@
 
     
     <%- include('partials/_footer') %> 
+
+<html lang="en">
+<%- include('partials/head') %>
+<body>
+    <%- include('partials/headerLogueado') %> 
+    <div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Editar producto</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<div>
+                <form method="post">
+
+                <form method="post" enctype="multipart/form-data" action="/product/edit">
+                    <label for="imagen">Ingrese una imagen nueva</label>
+                    <input type="text" name="imagen">
+                    <label for="nombre">Ingrese el nombre del producto</label>
+                    <input type="text" name="nombre">
+                    <label for="descripcion">Ingrese la descripcion del producto</label>
+                    <input type="text" name="descripcion">
+                    <button type="submit">Agregar producto modificado</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <%- include('partials/footer') %>
+
 </body>
 </html>
