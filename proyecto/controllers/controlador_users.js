@@ -165,7 +165,7 @@ const usuariosController = {
                     }
                 } else {
                     return res.send("El usuario es invalido")
-                }
+                 }
 
             }).catch((err) => {
                 console.log(err);

@@ -18,13 +18,12 @@ const controlador_product = {
         let nombre = req.body.nombre;
         let descripcion = req.body.descripcion;
         let imagen = '/images/products/' + req.body.imagen;
-        let id_usuario = req.session.usuario.id;
 
         productos.create({
             nombre: nombre,
             descripcion: descripcion,
             imagen: imagen,
-            id_usuario: id_usuario
+            usuario_id: req.session.usuario.id
         })
             .then(function (respuesta) {
                 res.redirect('/products/detail/' + respuesta.id);
