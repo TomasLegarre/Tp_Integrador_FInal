@@ -31,6 +31,7 @@ const controlador_product = {
             })
     },
     product_detail: function (req, res) {
+      //  return res.send(req.session.Usuario)
         let id = req.params.id;
 
         productos.findByPk(id, {
@@ -145,7 +146,27 @@ const controlador_product = {
             .catch(function (error) {
                 res.send(error);
             })
-    }
+    },
+    
+        comentar: function(req, res){
+             id = req.params.id
+            
+            if(req.session.usuario != undefined){ //si esxiste el usario en la sesion, que pueda comentar
+                 nuevoComentario = { 
+                    comentario: req.body.comentario,
+                    producto_id: id,
+                    usuario_id: req.session.usuario.id,   
+                 }
+                 db.Comentario.create(nuevoComentario)
+                 .then(function(){
+                     return res.redirect('/products/detail/' + id)
+                 }
+                 )} else {
+                 return res.redirect('/users/login')
+             }
+
+    
+        }
 
 }
 module.exports = controlador_product;
