@@ -4,8 +4,10 @@ const producto = db.Producto; //alias del modelo
 const controlador_index = {
   index: function (req, res) {
     let rel = {
-      include: [{ association: "usuario" }, { association: "comentario" }]
+      include: [{ association: "usuario" }, { association: "comentario" }],
+      // order: [['update_at', 'DESC']], --> es por aca, revisar ORDEN
     };
+
     producto.findAll(rel)
       .then(lista_telefonos => {
         res.render('index', { lista_telefonos: lista_telefonos });

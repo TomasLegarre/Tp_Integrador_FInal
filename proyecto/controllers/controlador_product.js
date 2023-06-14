@@ -158,6 +158,11 @@ const controlador_product = {
     
         comentar: function(req, res){
              id = req.params.id
+            //  comentarios.findAll({
+            //     order: [['update_at', 'DESC']],
+            //  }
+            //  ) ORDEN
+             
             
             if(req.session.usuario != undefined){ //si esxiste el usario en la sesion, que pueda comentar
                  nuevoComentario = { 
