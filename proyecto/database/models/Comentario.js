@@ -32,7 +32,7 @@ module.exports = function (sequelize, dataTypes) {
             underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
         };
     
-    const Comentario = sequelize.define(alias,cols,config); /*se guarda un Obj lit en la var "Usuarios" */
+    const Comentario = sequelize.define(alias,cols,config); /*se guarda un Obj lit en la var "Usuario" */
 /*                  seq es un parametro q es un Obj lit, q tiene un metodo principal (define) q ayuda a definir mi modelo con el alias,con el mapeo de las columnas y con la config. cuando crea ese modelo, dsp lo retorno para utilizarlo en el controlador de seq  */
     
         Comentario.associate = function(models) {

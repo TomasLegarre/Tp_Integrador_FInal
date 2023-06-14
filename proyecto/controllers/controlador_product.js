@@ -8,20 +8,22 @@ const controlador_product = {
 
 
     product_add: function (req, res) {
-        if (req.session.usuario != undefined) {
-            res.render('product_add');
+        if (req.session.usuario) {
+            return res.render('product_add');
         } else {
-            res.redirect('/users/login');
+            return res.redirect('/users/login');
         }
     },
     store: function (req, res) {
-        let form = req.body;
+        let nombre = req.body.nombre;
+        let descripcion = req.body.descripcion;
+        let imagen = '/images/products/' + req.body.imagen;
 
         productos.create({
-            nombre: form.nombre,
-            descripcion: form.descripcion,
-            imagen: form.imagen,
-            id_usuario: req.session.usuarios.id
+            nombre: nombre,
+            descripcion: descripcion,
+            imagen: imagen,
+            usuario_id: req.session.usuario.id
         })
             .then(function (respuesta) {
                 res.redirect('/products/detail/' + respuesta.id);
@@ -31,6 +33,7 @@ const controlador_product = {
             })
     },
     product_detail: function (req, res) {
+      //  return res.send(req.session.Usuario)
         let id = req.params.id;
 
         productos.findByPk(id, {
@@ -116,7 +119,7 @@ const controlador_product = {
             });
           } else {
             // El producto no pertenece al usuario logueado, mostrar mensaje de error
-            res.send('El producto no pertenece al usuario logueado');
+            res.send('El producto no pertenece al usuario logueado.');
           }
         })
         .catch(function (error) {
@@ -131,22 +134,52 @@ const controlador_product = {
         }
     },
     EditProduct: function (req, res) {
-        let form = req.body;
-        console.log(req.session.usuario); 
+        let idProducto = req.params.id;
+        let nombre = req.body.nombre;
+        let descripcion = req.body.descripcion;
+        let imagen = '/images/products/' + req.body.imagen;
 
-        productos.create({
-            nombre: form.nombre,
-            descripcion: form.descripcion,
-            imagen: form.imagen,
-            id_usuario: req.session.usuario.id
+        productos.update({
+            nombre: nombre,
+            descripcion: descripcion,
+            imagen: imagen,
+        },{
+            where: {
+                id: idProducto
+            },
         })
-            .then(function (respuesta) {
-                res.redirect('/detail/' + respuesta.id);
+            .then(function () {
+                res.redirect('/products/detail/' + idProducto);
             })
             .catch(function (error) {
                 res.send(error);
             })
-    }
+    },
+    
+        comentar: function(req, res){
+             id = req.params.id
+            //  comentarios.findAll({
+            //     order: [['update_at', 'DESC']],
+            //  }
+            //  ) ORDEN
+             
+            
+            if(req.session.usuario != undefined){ //si esxiste el usario en la sesion, que pueda comentar
+                 nuevoComentario = { 
+                    comentario: req.body.comentario,
+                    producto_id: id,
+                    usuario_id: req.session.usuario.id,   
+                 }
+                 db.Comentario.create(nuevoComentario)
+                 .then(function(){
+                     return res.redirect('/products/detail/' + id)
+                 }
+                 )} else {
+                 return res.redirect('/users/login')
+             }
+
+    
+        }
 
 }
 module.exports = controlador_product;

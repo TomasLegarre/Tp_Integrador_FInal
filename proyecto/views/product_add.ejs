@@ -10,6 +10,7 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<div>
+
                 <form method="post" enctype="multipart/form-data" action="/products/add">
                     <label for="imagen">Ingrese una imagen</label>
                     <input type="text" name="imagen">
@@ -17,8 +18,24 @@
                     <input type="text" name="nombre">
                     <label for="descripcion">Ingrese la descripcion del producto</label>
                     <input type="text" name="descripcion">
+
+                <form method="POST">
+                    <label>Imagen:</label>
+                    <input type="text" placeholder="imagen del producto" name="imagen" required
+                        class="form-input"><br>
+    
+                    <label>Nombre del producto:</label>
+                    <input type="text" placeholder="ingrese nombre del producto"
+                        name="nombre" required class="form-input"><br>
+    
+                    <label>Descripción:</label>
+                    <textarea placeholder="ingrese una breve descripcion del producto"
+                        name="descripcion" required class="form-input"></textarea><br>
+    
+
                     <button type="submit">Agregar producto</button>
                 </form>
+    
             </div>
         </div>
     </div>
