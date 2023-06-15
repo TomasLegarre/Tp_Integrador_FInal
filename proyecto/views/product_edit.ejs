@@ -10,21 +10,18 @@
             </div>
             <!-- Show the "ultimos" products -->
             <div>
-                <form action="/detail/:id" method="POST">
+                <form action="/products/edit/<%= telefono.id %>" method="POST">
                     <label>Imagen:</label>
-                    <input type="text" placeholder="imagen del producto" name="imagen" required
-                        class="form-input"><br>
-    
+                    <input type="text" placeholder="imagen del producto" name="imagen" required class="form-input" value="<%= telefono.imagen %>"><br>
+                  
                     <label>Nombre del producto:</label>
-                    <input type="text" placeholder="ingrese nombre del producto"
-                        name="nombre" required class="form-input"><br>
-    
+                    <input type="text" placeholder="ingrese nombre del producto" name="nombre" required class="form-input" value="<%= telefono.nombre %>"><br>
+                  
                     <label>Descripción:</label>
-                    <textarea placeholder="ingrese una breve descripcion del producto"
-                        name="descripcion" required class="form-input"></textarea><br>
-    
-                    <button type="submit"> Guardar cambios</button>
-                </form>
+                    <textarea placeholder="ingrese una breve descripción del producto" name="descripcion" required class="form-input"><%= telefono.descripcion %></textarea><br>
+                  
+                    <button type="submit">Guardar cambios</button>
+                  </form>
             </div>
         </div>
     </div>

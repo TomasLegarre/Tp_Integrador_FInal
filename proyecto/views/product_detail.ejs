@@ -28,7 +28,7 @@
 					<form class="form" action="/products/delete/<%= telefono.id %>" method="POST">
 						<button type="submit" class="delete-button">Eliminar producto</button>
 					</form>
-					<a href="/products/edit"><h2>Editar producto</h2></a>
+					<a href="/products/edit/<%= telefono.id %>"><h2>Editar producto</h2></a>
 				<% } %>
 			<% } %>
 		</div>

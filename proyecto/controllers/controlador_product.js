@@ -17,7 +17,7 @@ const controlador_product = {
     store: function (req, res) {
         let nombre = req.body.nombre;
         let descripcion = req.body.descripcion;
-        let imagen = '/images/products/' + req.body.imagen;
+        let imagen = req.body.imagen;
 
         productos.create({
             nombre: nombre,
@@ -127,18 +127,27 @@ const controlador_product = {
           res.send(error);
         });
       },
-    product_edit: function (req, res) {
+      product_edit: function (req, res) {
         if (req.session.usuario != undefined) {
-            res.render('product_edit');
+          let idProducto = req.params.id; // Obtener el ID del producto de la URL
+          productos.findByPk(idProducto, {
+            include: [{ association: "usuario" }, { association: "comentario" }]
+          })
+            .then(function (telefono) {
+              res.render('product_edit', { telefono: telefono });
+            })
+            .catch(function (error) {
+              res.send(error);
+            });
         } else {
-            res.redirect('/users/login');
+          res.redirect('/users/login');
         }
     },
-    EditProduct: function (req, res) {
+    EditProduct: function (req,res) {
         let idProducto = req.params.id;
         let nombre = req.body.nombre;
         let descripcion = req.body.descripcion;
-        let imagen = '/images/products/' + req.body.imagen;
+        let imagen =  req.body.imagen;
 
         productos.update({
             nombre: nombre,
@@ -155,10 +164,11 @@ const controlador_product = {
             .catch(function (error) {
                 res.send(error);
             })
+        
     },
     
-        comentar: function(req, res){
-             id = req.params.id
+    comentar: function(req, res){
+             let id = req.params.id
             //  comentarios.findAll({
             //     order: [['update_at', 'DESC']],
             //  }
