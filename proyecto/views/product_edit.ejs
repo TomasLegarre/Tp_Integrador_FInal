@@ -1,32 +1,16 @@
 <!DOCTYPE html>
-
-<html lang="es">
-	<%- include('partials/head') %>
-
-<body>
-	<!-- Header -->
-	<% if (locals.usuario) { %>
-        <%- include('partials/headerLogueado') %> 
-    <% } else { %> 
-        <%- include('partials/header') %> 
-	<% } %>
-
-
-    
-    <%- include('partials/_footer') %> 
-
 <html lang="en">
 <%- include('partials/head') %>
 <body>
     <%- include('partials/headerLogueado') %> 
     <div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Editar producto</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<div>
-                <form method="POST">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="products-title">Editar producto</h2>
+            </div>
+            <!-- Show the "ultimos" products -->
+            <div>
+                <form action="/detail/:id" method="POST">
                     <label>Imagen:</label>
                     <input type="text" placeholder="imagen del producto" name="imagen" required
                         class="form-input"><br>
@@ -45,6 +29,5 @@
         </div>
     </div>
     <%- include('partials/footer') %>
-
 </body>
 </html>

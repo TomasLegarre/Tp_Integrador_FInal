@@ -18,7 +18,7 @@ router.post('/edit', controlador_product.EditProduct);
 
 router.get('/detail/:id', controlador_product.product_detail);
 router.post('/delete/:id', controlador_product.product_delete);
-router.post('/edit/', controlador_product.EditProduct);
+router.post('/edit/:id', controlador_product.EditProduct);
 
 router.post('/comentar/id/:id' , controlador_product.comentar)
 

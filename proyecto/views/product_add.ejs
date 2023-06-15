@@ -4,21 +4,12 @@
 <body>
     <%- include('partials/headerLogueado') %> 
     <div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Agregar productos</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<div>
-
-                <form method="post" enctype="multipart/form-data" action="/products/add">
-                    <label for="imagen">Ingrese una imagen</label>
-                    <input type="text" name="imagen">
-                    <label for="nombre">Ingrese el nombre del producto</label>
-                    <input type="text" name="nombre">
-                    <label for="descripcion">Ingrese la descripcion del producto</label>
-                    <input type="text" name="descripcion">
-
+        <div class="row">
+            <div class="col-12">
+                <h2 class="products-title">Agregar productos</h2>
+            </div>
+            <!-- Show the "ultimos" products -->
+            <div>
                 <form method="POST">
                     <label>Imagen:</label>
                     <input type="text" placeholder="imagen del producto" name="imagen" required
@@ -32,7 +23,6 @@
                     <textarea placeholder="ingrese una breve descripcion del producto"
                         name="descripcion" required class="form-input"></textarea><br>
     
-
                     <button type="submit">Agregar producto</button>
                 </form>
     

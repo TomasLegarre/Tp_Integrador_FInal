@@ -100,7 +100,7 @@ const controlador_product = {
         productos.findOne({
           where: {
             id: id,
-            id_usuario: usuarioId
+            usuario_id: usuarioId
           }
         })
         .then(function (producto) {
@@ -108,7 +108,8 @@ const controlador_product = {
             // El producto pertenece al usuario logueado, se puede eliminar
             productos.destroy({
               where: {
-                id: id
+                id: id,
+                usuario_id: usuarioId
               }
             })
             .then(function () {
