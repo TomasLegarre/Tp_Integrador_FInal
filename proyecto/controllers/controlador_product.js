@@ -34,7 +34,11 @@ const controlador_product = {
     },
     product_detail: function (req, res) {
       //  return res.send(req.session.Usuario)
-        let id = req.params.id;
+        // comentarios.findAll({
+        //     order: [['update_at', 'DESC']],
+       // }) // quiero que se vean de fomra descendente
+      
+      let id = req.params.id;
 
         productos.findByPk(id, {
             include: [
@@ -128,6 +132,8 @@ const controlador_product = {
         });
       },
       product_edit: function (req, res) {
+
+
         if (req.session.usuario != undefined) {
           let idProducto = req.params.id; // Obtener el ID del producto de la URL
           productos.findByPk(idProducto, {
